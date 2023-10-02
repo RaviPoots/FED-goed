@@ -1,0 +1,406 @@
+
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+}
+
+@font-face {
+	font-family: CooperBlack;
+	src: url(Cooper-Black-Regular.ttf);
+}
+
+:root {
+	--color-text: #111;
+	--color-background: #F5EBDB;
+	--color-buttonborder: #d62300;
+	--color-brown: rgb(80, 35, 20);
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-family: CooperBlack;
+}
+
+h2 {
+	font-family: CooperBlack;
+}
+
+p {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAV */
+/*HEADER*/
+
+header {
+	position: relative;
+}
+
+header>nav {
+	display: none;
+	z-index: 99;
+}
+
+header>section:first-of-type {
+	display: grid;
+	grid-template-columns: 1fr 0.25fr 1fr;
+	padding: 0.5em;
+}
+
+header section:first-of-type a {
+	font-family: CooperBlack;
+}
+
+header>section:first-of-type section {
+	width: 100%;
+	margin: auto auto auto 0;
+}
+
+header>section:first-of-type section img {
+	width: 1.5em;
+	margin-right: 2em;
+}
+
+header>section:first-of-type section a {
+	display: none;
+}
+
+header>section:first-of-type>a[href='/'] {
+	margin: auto;
+}
+
+header>section:first-of-type>a[href='#'] {
+	margin: auto 0 auto auto;
+	color: var(--color-buttonborder);
+	text-decoration: none;
+	border: .1em solid var(--color-buttonborder);
+	border-radius: 8em;
+	padding: .4em .8em;
+	font-weight: bold;
+}
+
+header>section:first-of-type a img {
+	width: 4em;
+}
+
+header>nav {
+	display: block;
+	position: absolute;
+	left: 0;
+	translate: -100% 0%;
+	transition: translate .3s;
+	width: 100%;
+	height: 100vh;
+	background-color: var(--color-background);
+}
+
+header>nav.toggleMenu {
+	translate: 0% 0%;
+}
+
+header section a {
+	color: var(--color-brown);
+}
+
+nav a {
+	color: var(--color-brown);
+}
+
+
+body header section:nth-of-type(2) {
+	padding: 0 1em;
+	background-color: rgb(80, 35, 20);
+}
+
+body header h1 {
+	color: var(--color-background);
+	font-size: .8em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+header section:last-child {
+	display: flex;
+	justify-content: center;
+	font-size: 5em;
+}
+
+/*INGEKLAPTE MENU*/
+
+nav ul article:first-of-type {
+	border-bottom: 1px solid var(--color-brown);
+}
+
+header nav ul {
+	display: flex;
+	justify-content: flex-start;
+	align-items: left;
+	flex-direction: column;
+}
+
+header nav ul li {
+	margin: 1em;
+	color: var(--color-brown);
+}
+
+@media screen and (min-width: 1000px) {
+	header>section:first-of-type section {
+		display: flex;
+		gap: 1em;
+	}
+
+	header>section:first-of-type>a[href='#'] {
+		margin: auto 0 auto auto;
+		color: white;
+		background-color: var(--color-buttonborder);
+		text-decoration: none;
+		border: .1em solid var(--color-buttonborder);
+		border-radius: 8em;
+		padding: .4em .8em;
+		font-weight: bold;
+	}
+	
+	header>section:first-of-type section a {
+		display: inline-block;
+	}
+
+	header>nav {
+		width: 30%;
+	}
+}
+
+/* SLIDER */
+
+.slider ul {
+	display: flex; 
+	justify-content: flex-start;
+	align-items: center;
+	overflow-x: auto; 
+	scroll-snap-type: x mandatory;
+	gap: 2em;
+	padding-left: 0em;
+
+
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+}
+
+.slider::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+  }
+  .slider::-webkit-scrollbar-thumb {
+	background: black;
+	border-radius: 10px;
+  }
+  .slider::-webkit-scrollbar-track {
+	background: transparent;
+  }
+
+.slider > ul li {
+
+	scroll-snap-align: start;
+	flex-shrink: 0;
+	
+	height: 100%;
+	white-space: nowrap;
+	transform: scale(1);
+	transition: transform 0.5s;
+	position: relative;
+}
+
+/* CARDS */
+
+main h2 {
+    margin-top: 1em;
+    color: var(--color-brown);
+    font-size: 1.4em;
+}
+
+main ul li {
+    display: flex;
+    border-bottom: 1px solid rgb(215, 199, 181);
+}
+
+main img {
+    width: 5em;
+    border-radius: 1em;
+    margin: .5em;
+   
+}
+
+@media screen and (min-width: 800px) {
+
+	.slider {
+		display: none;
+	}
+
+	main section:last-of-type {
+		margin: 0 auto;
+		width: 50em;
+		margin-top: 2em;
+		margin-bottom: 2em;
+
+	}
+	
+	main li {
+		background-color: white;
+		border-radius: 1em;
+		flex-direction: column;
+		text-align: center;
+		font-size: 1.4em;
+	}
+	
+	main h2 {
+		color: var(--color-brown);
+		font-size: .8em;
+		margin: 1em;
+	
+	}
+	
+	main p {
+		color: var(--color-brown);
+		font-size: .8em;
+		margin: 0 1em;
+	}
+	
+	main img {
+		width: 100%;
+		border-top-left-radius: 1em;
+		border-top-right-radius: 1em;
+		margin: 0;
+	}
+	
+
+	main ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1em;
+	}
+}
+
+.alt {
+	display: none;
+}
+
+body {
+    background-color: var(--color-background);
+}
+
+/* FOOTER */
+
+@media (max-width: 1200px) {
+
+	footer {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background-color: var(--color-background);
+		position: fixed;
+		width: 100%;
+		z-index: 3;
+	}
+
+	footer nav ul {
+		text-align: center;
+		height: 4em;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-left: 1.4em;
+		margin-right: 1em;
+	}
+
+	footer nav ul li {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	footer nav ul img {
+		width: 1em;
+		height: 1.5em;
+		margin: 1 0em;
+	}
+
+	footer section:last-of-type {
+		display: none;
+	}
+
+	footer nav ul li:nth-of-type(1) {
+		width: 1.4em;
+	}
+
+	footer nav ul li:nth-of-type(2) img {
+		width: 1.4em;
+	}
+
+	footer nav ul li:nth-of-type(3) img {
+		width: 1.2em;
+	}
+
+	footer nav ul li:nth-of-type(4) img {
+		width: 1.4em;
+	}
+
+	footer nav ul li:nth-of-type(5) img {
+		width: 1.4em;
+	}
+
+}
+
+@media (min-width: 1200px) {
+
+	footer {
+		background-color: rgb(43, 2, 0);
+		position: relative;
+	}
+
+	footer nav {
+		display: none;
+	}
+
+	footer section:last-of-type {
+		color: var(--color-background);
+		padding: 5em;
+	}
+
+	footer section ul:last-of-type {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: row;
+	}
+
+	footer section article:first-of-type {
+		margin: 0 3em;
+		margin-bottom: 3em;
+		border-bottom: 1px solid rgb(215, 199, 181);
+	}
+
+	footer section article:last-of-type {
+		margin-left: 3em;
+	}
+
+	footer section ul h3 {
+		margin-top: 3em;
+	}
+
+	footer p:last-of-type {
+		margin-top: 1em;
+		font-size: .8em;
+		color: var(--color-background);
+	}
+
+	
+
+}
